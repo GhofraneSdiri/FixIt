@@ -1,0 +1,27 @@
+fixit_homepage:
+    path:     /
+    defaults: { _controller: FixitBundle:Default:index }
+fixit_content:
+    path:     /content
+    defaults: { _controller: FixitBundle:Default:content }
+fixit_acceuil:
+    path:     /acceuil
+    defaults: { _controller: FixitBundle:Default:acceuil }
+fixit_admin:
+    path:     /admin
+    defaults: { _controller: FixitBundle:Default:admin }
+fixit_contact:
+    path:     /contact
+    defaults: { _controller: FixitBundle:Default:contact }
+fixit_disponibilite:
+    path:     /disponibilite
+    defaults: { _controller: FixitBundle:Default:disponibilite }
+fixit_service:
+    path:     /service
+    defaults: { _controller: FixitBundle:Default:service }
+fixit_blog:
+    path:     /blog
+    defaults: { _controller: FixitBundle:Default:blog }
+fixit_vente:
+    path:     /vente
+    defaults: { _controller: FixitBundle:Default:vente }

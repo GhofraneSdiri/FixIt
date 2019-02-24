@@ -1,0 +1,41 @@
+{% extends "base.html.twig" %}
+
+{% block title %}ServicesBundle:Service:update{% endblock %}
+
+{% block content %}
+    <div id="search">
+        <div style="float: left">
+        <form action="{{ path('rechercheByCategorie') }}">
+        <label>
+            Categorie :
+            <select name="categorie">
+                <option value="0" selected> All</option>
+                      {% for c in categories  %}
+                          <option value="{{ c.id }}"> {{ c.name }}</option>
+                      {% endfor %}
+                  </select>
+            </label>
+            <input type="submit" value="rechercher">
+        </form>
+        </div>
+        <div style="float: right"> nom : <input type="text" id="name"/></div>
+        <br>
+
+    </div>
+    <div class="service">
+        {% for s in services %}
+            <div class="card" style="padding: 5px;margin: 10px;">
+                <div class="card-title">
+                    <span style="float: right;margin: 3px;color: #b37400">{{ s.categorie.name }}</span>
+                    <a href="{{ path('read',{id:s.id}) }}" style="text-decoration: none;color: black"><h3>{{ s.nom }}</h3></a>
+                </div>
+                <div class="card-body">
+                    <span style="float: right;color: #1e7e34">{{ s.prix }} Dt</span>
+                    <p> {{ s.description }}</p>
+
+                    <a href="{{ path('read',{id:s.id}) }}"><button class="btn btn-primary btn-success">Contact</button></a> <button class="btn btn-primary btn-warning"> Report</button>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

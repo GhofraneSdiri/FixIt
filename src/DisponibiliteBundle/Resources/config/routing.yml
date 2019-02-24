@@ -1,0 +1,3 @@
+disponibilite_homepage:
+    path:     /
+    defaults: { _controller: DisponibiliteBundle:Default:index }

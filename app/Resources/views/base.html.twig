@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title  %}FixIt{% endblock %}</title>
+    <meta charset="utf-8">
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('Front/css/reset.css') }}" type="text/css" media="screen">
+        <link rel="stylesheet" href="{{ asset('Front/css/style.css') }}" type="text/css" media="screen">
+        <link rel="stylesheet" href="{{ asset('Front/css/layout.css') }}" type="text/css" media="screen">
+        <link rel="stylesheet" href="{{ asset('Front/css/ie.css') }}" type="text/css" media="screen">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        {#<![endif]-->#}
+    {% endblock %}
+</head>
+<body id="page3">
+<div class="extra">
+    <div class="main">
+        <!--==============================header=================================-->
+        {% block header %}
+            <header>
+                <div class="indent" style="padding: 0px;">
+                    <div class="row-top">
+                        <div class="wrapper">
+                            <h1><a href="index.html">FixIt</a></h1>
+                            <strong class="support">+216 **-***-***</strong>
+                        </div>
+                    </div>
+                    <nav>
+                        <ul class="menu" style="position: relative; bottom: 10px;">
+                            <li><a href="">Aceuill</a></li>
+                            <li><a href="{{ path('list_client') }}">Services</a></li>
+                            <li><a class="active" href="{{ path('fixit_blog') }}">blog</a></li>
+                            <li><a href="{{ path('fixit_vente') }}">Vente</a></li>
+                            <li><a href="{{ path('fixit_disponibilite') }}"> Dispo</a></li>
+                            <li class="last"><a href="{{ path('fixit_contact') }}">Contacts</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+        {% endblock %}
+
+        {% block content %}
+            <!--==============================content================================-->
+
+        {% endblock %}
+        <div>
+        </div>
+    </div>
+</div>
+{% block footer %}
+
+{% endblock %}
+{% block script %}
+
+    <script src="{{ asset('Back/js/jquery-3.2.1.min.js') }}"></script>
+    <script src="{{ asset('Back/js/popper.min.js')}}"></script>
+    <script src="{{ asset('Back/js/bootstrap.min.js')}}"></script>
+    <script src="{{ asset('Front/js/cufon-yui.js') }}"></script>
+    <script src="{{ asset('Front/js/cufon-replace.js') }}"></script>
+    <script src="{{ asset('Front/js/NewsGoth_BT_400.font.js') }}"></script>
+    <script src="{{ asset('Front/js/FF-cash.js') }}"></script>
+    <script src="{{ asset('Front/js/script.js') }}"></script>
+    <script src="{{ asset('Front/js/jquery.equalheights.js') }}"></script>
+    <script src="{{ asset('Front/js/easyTooltip.js') }}"></script>
+
+    {#<!--[if lt IE 9]>#}
+    <script src="{{ asset('Front/js/html5.js') }}"></script>
+{% endblock %}
+</body>
+</html>

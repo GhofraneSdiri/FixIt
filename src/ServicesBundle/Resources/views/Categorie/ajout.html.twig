@@ -1,0 +1,26 @@
+{% extends "admin.html.twig" %}
+
+{% block title %}Categorie ajout{% endblock %}
+
+{% block body %}
+<div class="app-title">
+    <div>
+        <h1><i class="fa fa-dashboard"></i> Add Categorie</h1>
+        <p>A form to add a categorie</p>
+    </div>
+    <ul class="app-breadcrumb breadcrumb">
+        <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+        <li class="breadcrumb-item"><a href="#">Categorie</a></li>
+    </ul>
+</div>
+    <div class="row card">
+        <div class="card-title">
+            <h1>Ajouter une catégorie :</h1>
+        </div>
+        <div class="card-body">
+            {{ form_start(form) }}
+            {{ form_end(form) }}
+        </div>
+
+    </div>
+{% endblock %}

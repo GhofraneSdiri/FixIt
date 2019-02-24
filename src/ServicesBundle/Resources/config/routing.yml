@@ -1,0 +1,56 @@
+services_homepage:
+    path:     /
+    defaults: { _controller: ServicesBundle:Default:index }
+
+ajout:
+    path:     /service/ajout
+    defaults: { _controller: ServicesBundle:Service:ajout }
+
+list:
+    path:     /service/list
+    defaults: { _controller: ServicesBundle:Service:list }
+
+list_client:
+    path:   /service/listClient
+    defaults: { _controller: ServicesBundle:Service:listClient}
+read:
+    path: /service/read/{id}
+    defaults: { _controller: ServicesBundle:Service:getService}
+update:
+    path:     /service/update/{id}
+    defaults: { _controller: ServicesBundle:Service:update }
+
+delete:
+    path:     /service/delete/{id}
+    defaults: { _controller: ServicesBundle:Service:delete }
+
+rechercheByName:
+    path: /service/recherche/{name}
+    defaults: { _controller: ServicesBundle:Service:rechercheByName}
+rechercheByCategorie:
+    path: /service/recherche
+    defaults: { _controller: ServicesBundle:Service:rechercheByCategorie}
+
+ajout_categorie:
+    path:     /categorie/ajout
+    defaults: { _controller: ServicesBundle:Categorie:ajout }
+
+list_categorie:
+    path:     /categorie/list
+    defaults: { _controller: ServicesBundle:Categorie:list }
+
+update_categorie:
+    path:     /categorie/update/{id}
+    defaults: { _controller: ServicesBundle:Categorie:upadate }
+
+delete_categorie:
+    path:     /categorie/delete/{id}
+    defaults: { _controller: ServicesBundle:Categorie:delete }
+
+ajout_reclamation:
+    path:     /reclamation/ajout
+    defaults: { _controller: ServicesBundle:Reclamation:ajout }
+
+list_reclamation:
+    path:     /reclamation/list
+    defaults: { _controller: ServicesBundle:Reclamation:list }

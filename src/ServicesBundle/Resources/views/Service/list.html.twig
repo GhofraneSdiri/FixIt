@@ -1,0 +1,30 @@
+{% extends "admin.html.twig" %}
+
+{% block title %}Services:list{% endblock %}
+
+{% block body %}
+    <h1>Welcome to the Services:list page</h1>
+    <a href="{{path('ajout') }}">Ajouter un nouveau service</a>
+    <table border="1" class="table table-hover table-bordered" style="text-align: center">
+        <th>id</th>
+        <th>nom</th>
+        <th>prix</th>
+        <th>Description</th>
+        <th>categorie</th>
+        
+        <th>Action</th>
+
+        {% for ser in services  %}
+            <tr>
+                <td>{{ ser.id }}</td>
+                <td>{{ ser.nom }}</td>
+                <td>{{ ser.prix }}</td>
+                <td>{{ ser.description }}</td>
+                <td>{{ ser.categorie.name }}</td>
+
+                <td><a href="{{ path('delete',{id:ser.id}) }}">Supprimer</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+    <script type="text/javascript">$('#sampleTable').DataTable();</script>
+{% endblock %}

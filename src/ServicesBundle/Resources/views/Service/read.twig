@@ -1,0 +1,14 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Services{% endblock %}
+
+{% block content %}
+
+    <h3>Service:</h3><hr>
+    <p> <strong>nom : </strong>{{ service.nom }}</p>
+    <p> <strong>catégorie : </strong>{{ service.categorie.name }}</p>
+    <p> <strong>prix : </strong>{{ service.prix }}</p>
+    <p><strong>description :</strong> </p>
+    <span>  {{ service.description }}</span>
+
+{% endblock %}

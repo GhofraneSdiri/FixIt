@@ -1,0 +1,20 @@
+{% extends "admin.html.twig" %}
+
+{% block title %}ServicesBundle:Categorie:list{% endblock %}
+
+{% block body %}
+<h1>Welcome to the Categorie:list page notif test:</h1>
+    <a href="{{path('ajout_categorie') }}">Ajouter une nouvelle categorie</a>
+    <table border="1" class="table table-hover table-bordered" id="sampleTable">
+        <th>id</th>
+        <th>nom</th>
+        <th>Action</th>
+
+    {% for cat in categories  %}
+        <tr><td>{{ cat.id }}</td><td>{{ cat.name }}</td><td><a href="{{ path('delete_categorie',{id:cat.id}) }}">Supprimer</a> | <a href="{{ path('update_categorie',{id:cat.id}) }}">Modifier</a></td></tr>
+    {% endfor %}
+    </table>
+
+
+    <script type="text/javascript">$('#sampleTable').DataTable();</script>
+{% endblock %}
