@@ -20,8 +20,10 @@ class AppKernel extends Kernel
             new FixitBundle\FixitBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new UserBundle\UserBundle(),
+
             new DisponibiliteBundle\DisponibiliteBundle(),
             new ServicesBundle\ServicesBundle(),
+            new forumBundle\forumBundle(),
             new Mgilet\NotificationBundle\MgiletNotificationBundle(),
         ];
 

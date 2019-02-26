@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+
+    <section id="content">
+        <div class="wrapper">
+            {% for p in commentaire %}
+                <div class="card" style="padding: 5px;margin: 10px;">
+
+                    <div class="card-body">
+                        <span style="color: #1e7e34">Publiée par : {{ p.idPublication.idUser.nom }} le {{ p.getDate()|date }}</span>
+                        <p> {{ p.contenu }}</p>
+
+
+                    </div>
+                </div>
+
+
+            {% endfor %}
+        </div>
+        <div class="block"></div>
+    </section>
+<script>
+    function popup(page) {
+        window.open(page,'popup','width=685, height=455, toolbar=false, scrollbars=false');
+    }
+</script>
+{% endblock %}

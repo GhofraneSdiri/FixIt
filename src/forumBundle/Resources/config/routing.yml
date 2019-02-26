@@ -1,0 +1,34 @@
+forum_index:
+    path:     /index
+    defaults: { _controller: forumBundle:Default:index }
+forum_forum:
+    path:     /forum
+    defaults: { _controller: forumBundle:Default:forum }
+
+forum_admin:
+    path:     /admin
+    defaults: { _controller: forumBundle:Default:admin }
+forum_home:
+    path:     /home
+    defaults: { _controller: forumBundle:Default:home }
+do_Login:
+    path:     /Logiin
+    defaults: { _controller: forumBundle:Default:Login }
+Inscription:
+    path:     /inscription
+    defaults: { _controller: forumBundle:Default:Inscription }
+ajouter_Commentaire:
+    path:     /commentaire/{id}
+    defaults: { _controller: forumBundle:Default:ajouterCommentaire }
+like:
+    path:     /like/{id}
+    defaults: { _controller: forumBundle:Default:addLike }
+publication:
+    path:     /delete/{id}
+    defaults: { _controller: forumBundle:Default:deletePublication }
+publication_update:
+    path:     /update/{id}
+    defaults: { _controller: forumBundle:Default:update }
+listcommentaire:
+    path:     /listComm/{id}
+    defaults: { _controller: forumBundle:Default:listeCommentaire }

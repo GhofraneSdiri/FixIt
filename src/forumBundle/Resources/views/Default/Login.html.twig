@@ -1,0 +1,43 @@
+{% extends('base.html.twig') %}
+{% trans_default_domain 'FOSUserBundle' %}
+{% block content %}
+    {% if error %}
+        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    <form action="{{ path("fos_user_security_check") }}" method="post">
+        {% if csrf_token %}
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+        {% endif %}
+        <section class="clearfix loginSection">
+            <div class="container">
+                <div class="row">
+                    <div class="center-block col-md-5 col-sm-6 col-xs-12">
+                        <div class="panel panel-default loginPanel">
+                            <div class="panel-heading text-center">Page de connexion</div>
+                            <div class="panel-body">
+                                <form class="loginForm">
+                                    <div class="form-group">
+                                        <label for="userName">Nom d'utilisateur *</label>
+                                        <input type="text" id="username" name="_username" value="{{ last_username }}" class="form-control" required="required" />
+                                        <p class="help-block">Entrez votre nom d'utilisateur de la Fondation.</p>
+                                        <label for="userPassword">Mot de passe *</label>
+                                        <input type="password" id="password" name="_password" class="form-control" required="required" />
+                                        <p class="help-block">Entrer le mot de passe associé à votre nom d'utilisateur.</p>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" class="form-control"/>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="panel-footer text-center">
+                                <p>Pas encore membre? <a href="" class="link">Créer un compte</a></p>
+                                <br><br><br><br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </form>
+{% endblock %}

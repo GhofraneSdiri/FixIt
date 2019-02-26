@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+    {{ form_start(form) }}
+    {{ form_end(form) }}
+    <section id="content">
+                <div class="wrapper">
+                    {% for p in pub %}
+                        <div class="card" style="padding: 5px;margin: 10px;">
+                            <div class="card-title">
+                                <span style="float: right;margin: 3px;color: #b37400">{{ p.titre }}</span>
+
+                            </div>
+                            <div class="card-body">
+                                <span style="color: #1e7e34">Publiée par : {{ p.idUser.nom }} le {{ p.getDatePublication()|date }}</span>
+                                <p> {{ p.contenu }}</p>
+                                {% set a =0 %}
+                                {% for c in commentaire %}
+                                    {% if c.idPublication.id == p.id %}
+
+                                        {% set a = a+1 %}
+
+                                    {% endif %}
+                                {% endfor %}
+                                <p style="text-align: left;"><a href='javascript:popup("{{ path('listcommentaire',{'id':p.id}) }}")'>il y'a {{ a }} commentaires et {{ p.nbLikes }} j'aimes</a><a style="text-align: right;"><button  class="btn btn-primary" id="vote{{ p.id }}" href="" >Ajouter un commentaire ?</button></a></p>
+                                <a class="btn btn-danger" href="{{ path('publication',{'id':p.id}) }}">Delete</a>
+                                <a class="btn btn-primary" href="{{ path('publication_update',{'id':p.id}) }}">Modifier</a>
+                                <button class="btn btn-success" id="like{{ p.id }}">j'aime</button>
+                            </div>
+                        </div>
+
+                        <div id="dialog{{ p.id }}" title="Vote" class="form-control" style="display: none">
+                            <div id="dialog-form">
+                                <p class="validateTips">Donner votre vote</p>
+                                <form>
+                                    <fieldset>
+                                        <label for="suggestion">Votre commentaire ?</label>
+                                        <input type="text" name="suggestion" id="comm{{ p.id }}" class="text ui-widget-content ui-corner-all"><br><br>
+                                        <input type="button" id="button{{ p.id }}" class="btn btn-primary" value="enregistrer">
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="block"></div>
+            </section>
+
+    <script src="{{ asset('Back/js/jquery-3.2.1.min.js') }}"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>    <script>
+    function popup(page) {
+        window.open(page,'popup','width=685, height=455, toolbar=false, scrollbars=false');
+    }
+    {% for suggestion in pub %}
+    $("#vote{{ suggestion.id }}").click(function (e) {
+        $("#dialog{{ suggestion.id }}").show().dialog();
+    });
+    $("#button{{ suggestion.id }}").click(function (e) {
+        var param = {
+            "commentaire" : $("#comm{{ suggestion.id }}").val()
+        };
+        $.post("/commentaire/"+{{ suggestion.id }},param,function (data) {
+            if(status = "success"){
+                alert("Success");
+            }
+        });
+    });
+    $("#like{{ suggestion.id }}").click(function (e) {
+        $.get("/like/"+{{ suggestion.id }},function (data) {
+            if(status = "done"){
+                alert("success")
+            }else{
+                alert("not done");
+            }
+        });
+    });
+
+    {% endfor %}
+
+</script>
+{% endblock %}
+{% block script %}
+
+{% endblock %}
